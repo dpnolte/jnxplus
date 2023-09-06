@@ -381,6 +381,15 @@ export default async function (
     root: normalizedOptions.projectRoot,
     projectType: 'application',
     sourceRoot: `${normalizedOptions.projectRoot}/src`,
+    namedInputs: {
+      default: [
+        '{projectRoot}/**/*',
+        'sharedGlobals',
+        '{workspaceRoot}/*.gradle.kts',
+        '{workspaceRoot}/*.gradle',
+        '{workspaceRoot}/gradle.properties',
+      ],
+    },
     targets: {
       build: {
         executor: `${plugin}:run-task`,
